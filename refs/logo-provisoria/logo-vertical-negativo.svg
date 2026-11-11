@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 105 332 300" role="img" aria-label="Dole Leilão">
+<!-- PROVISÓRIO: redesenho aproximado do mockup refs/logo-doleleilao.png. Substituir pelos arquivos oficiais do designer. Textos não convertidos em curvas (requer Montserrat). -->
+<rect x="90" y="105" width="332" height="300" fill="#2F3B3E"/>
+<defs>
+  <linearGradient id="gn" x1="300" y1="125" x2="195" y2="262" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#D19A6B"/><stop offset=".5" stop-color="#B98057"/><stop offset="1" stop-color="#9C6642"/>
+  </linearGradient>
+  <clipPath id="cn"><path d="M190,122 H256 A70,70 0 0 1 256,262 H190 Z"/></clipPath>
+  <mask id="mn" maskUnits="userSpaceOnUse" x="150" y="100" width="220" height="200">
+    <rect x="150" y="100" width="220" height="200" fill="#fff"/>
+    <polygon points="265.0,149.0 262.2,194.3 251.6,183.6 180.6,254.6 159.4,233.4 230.4,162.4 219.7,151.8" fill="#000" stroke="#000" stroke-width="2" stroke-linejoin="miter"/>
+    <polygon points="294.0,174.0 291.2,219.3 280.6,208.6 204.6,284.6 183.4,263.4 259.4,187.4 248.7,176.8" fill="#000" stroke="#000" stroke-width="2"/>
+  </mask>
+</defs>
+<g fill="url(#gn)">
+  <path d="M190,122 H256 A70,70 0 0 1 256,262 H190 Z M207,139 H256 A53,53 0 0 1 256,245 H207 Z" fill-rule="evenodd" mask="url(#mn)"/>
+  <g clip-path="url(#cn)"><polygon points="265.0,149.0 257.9,190.0 247.3,179.4 176.4,250.4 163.6,237.6 234.6,166.7 224.0,156.1"/><polygon points="294.0,174.0 286.9,215.0 276.3,204.4 200.4,280.4 187.6,267.6 263.6,191.7 253.0,181.1"/></g>
+</g><text x="256" y="350" text-anchor="middle" font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="78" letter-spacing="2" fill="#F6F5F2">DOLE</text>
+<text x="256" y="394" text-anchor="middle" font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="25" letter-spacing="9" fill="#F6F5F2">LEILÃO</text>
+</svg>

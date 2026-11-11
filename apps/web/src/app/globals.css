@@ -1,0 +1,305 @@
+@import "tailwindcss";
+@import "@doleleilao/design-tokens/tokens.css";
+
+/* Menu do painel recolhido (D-45): <html data-sidebar="collapsed">. */
+@custom-variant sidebar-collapsed (:root[data-sidebar="collapsed"] &);
+
+/*
+ * Tokens → Tailwind. Componentes usam só nomes semânticos (D-12, specs/07-design-system.md).
+ * Cores da marca Dole Leilão: dl-*. Cores da loja (por tenant): store-*. Estados do leilão: state-*.
+ */
+@theme inline {
+  --color-dl-copper: var(--dl-copper-600);
+  --color-dl-copper-hover: var(--dl-copper-800);
+  --color-dl-copper-icon: var(--dl-copper-500);
+  --color-dl-ink: var(--dl-ink-900);
+  --color-dl-ink-muted: var(--dl-ink-600);
+  --color-dl-line: var(--dl-ink-200);
+  --color-dl-page: var(--dl-surface-page);
+  --color-dl-card: var(--dl-surface-card);
+  /* Barra do topo do painel (escura): texto ink-50 10,7:1 e secundário ink-300 6,1:1 sobre ink-900. */
+  --color-dl-topbar: var(--dl-ink-900);
+  --color-dl-topbar-hover: var(--dl-ink-700);
+  --color-dl-on-topbar: var(--dl-ink-50);
+  --color-dl-on-topbar-muted: var(--dl-ink-300);
+  /* Palco escuro da tela de entrada (D-53): texto ink-50 e ink-300, destaque lime, brilho cobre decorativo. */
+  --color-dl-stage: var(--dl-ink-950);
+  --color-dl-stage-raised: var(--dl-ink-900);
+  --color-dl-stage-line: var(--dl-ink-700);
+  --color-dl-on-stage: var(--dl-ink-50);
+  --color-dl-on-stage-muted: var(--dl-ink-300);
+  --color-dl-lime: var(--dl-lime);
+  --color-dl-copper-glow: var(--dl-copper-400);
+
+  --color-store-primary: var(--store-primary);
+  --color-store-primary-hover: var(--store-primary-hover);
+  --color-store-on-primary: var(--store-on-primary);
+  --color-store-accent: var(--store-accent);
+  --color-store-on-accent: var(--store-on-accent);
+  --color-store-bg: var(--store-bg);
+  --color-store-surface: var(--store-surface);
+  --color-store-border: var(--store-border);
+  --color-store-text: var(--store-text);
+  --color-store-text-muted: var(--store-text-muted);
+  --color-store-link: var(--store-link);
+
+  --color-state-winning: var(--state-winning);
+  --color-state-outbid: var(--state-outbid);
+  --color-state-live: var(--state-live);
+  --color-state-closed: var(--state-closed);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-brand: var(--font-montserrat), var(--font-inter), sans-serif;
+  --font-store-heading: var(--store-font-heading), var(--font-inter), sans-serif;
+  /* Tela de entrada (D-53): as fontes do site. As variáveis só existem dentro dela; fora, cai na Inter. */
+  --font-display: var(--font-host-grotesk, var(--font-inter)), ui-sans-serif, system-ui, sans-serif;
+  --font-code: var(--font-jetbrains-mono, ui-monospace), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --radius-field: var(--radius-field);
+  --radius-card: var(--radius-card);
+}
+
+/* Larguras de conteúdo. Fora do bloco inline para virar variável CSS (var(--container-panel)). */
+@theme {
+  --container-panel: 85rem; /* painel do leiloeiro: classe max-w-panel */
+
+  /* Curvas: entrada que assenta, passo de interface e deslocamento (sem passar do ponto). */
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-travel: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Tela de entrada (D-53). Classes animate-*; com "reduzir movimento" terminam na hora. */
+  --animate-rise: dl-rise 520ms var(--ease-enter) both;
+  --animate-line-up: dl-line-up 700ms var(--ease-enter) both;
+  --animate-settle: dl-settle 900ms var(--ease-enter) both;
+  --animate-roll-in: dl-roll-in 300ms var(--ease-enter) both;
+  --animate-row-in: dl-row-in 300ms var(--ease-enter) both;
+  --animate-toast-in: dl-toast-in 320ms var(--ease-enter) both;
+  --animate-live-ring: dl-live-ring 2.4s linear infinite;
+  --animate-tap-ring: dl-tap-ring 450ms var(--ease-ui) both;
+  --animate-call-in: dl-call-in 360ms cubic-bezier(0.2, 0.9, 0.3, 1) both;
+  --animate-flyout-in: dl-flyout-in 140ms var(--ease-ui) both;
+}
+
+/* Só modo claro na v1 (D-08). */
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--dl-surface-page);
+  color: var(--dl-ink-900);
+}
+
+/* Números de lance, preço e cronômetro: largura fixa (D-14). */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* "Dole 1, Dole 2, Dole 3": cada chamada entra com um pequeno impacto (auditório). */
+@keyframes dl-call-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Troca de foto no carrossel do auditório. */
+@keyframes dl-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Submenu flutuante do menu lateral do painel (Configurações): sai de perto do item. */
+@keyframes dl-flyout-in {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Entrada dos modais (components/ui/dialog.tsx). Com "reduzir movimento", não anima. */
+@keyframes dl-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/*
+ * Tela de entrada (D-53). Só transform e opacity; com "reduzir movimento" a regra global acima
+ * congela tudo no quadro final.
+ */
+
+/* Sinal de "ao vivo": o ponto fica parado e um anel cresce e some (2,4 s). */
+@keyframes dl-live-ring {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+/* Brilho do palco: deriva lenta, linear. */
+@keyframes dl-glow-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-6%, 4%, 0);
+  }
+}
+
+/* Toque no celular: anel de 28 px que abre e some. */
+@keyframes dl-tap-ring {
+  from {
+    opacity: 0.55;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* Confete da tela do ganhador (o mesmo desenho do site). */
+@keyframes dl-confetti-fall {
+  from {
+    opacity: 1;
+    transform: translate3d(0, -12px, 0) rotate(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(var(--x, 0), 220px, 0) rotate(var(--r, 180deg));
+  }
+}
+
+/* Entrada da tela: o título sobe por trás de uma máscara; o resto sobe 12 px e aparece. */
+@keyframes dl-line-up {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes dl-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Os quadros do palco assentam de 0,98 (nunca somem). */
+@keyframes dl-settle {
+  from {
+    transform: scale(0.98);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* Número que muda (lance atual, quem está ganhando): o novo sobe de baixo. */
+@keyframes dl-roll-in {
+  from {
+    opacity: 0;
+    transform: translateY(55%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Linha nova numa lista (lances, chat). */
+@keyframes dl-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Aviso do sino. */
+@keyframes dl-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Palco escuro: pontos finos que somem nas bordas + brilho cobre e lime parados. */
+.dl-stage-grid {
+  background-image: radial-gradient(color-mix(in oklab, var(--dl-ink-300) 24%, transparent) 1px, transparent 1.6px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 75% 65% at 62% 62%, black 25%, transparent 100%);
+}
+
+.dl-stage-glow {
+  background:
+    radial-gradient(42% 38% at 88% 4%, color-mix(in oklab, var(--dl-copper-400) 50%, transparent), transparent 72%),
+    radial-gradient(38% 34% at 0% 100%, color-mix(in oklab, var(--dl-lime) 13%, transparent), transparent 72%),
+    linear-gradient(180deg, var(--dl-ink-900), var(--dl-ink-950) 55%);
+}
+
+/* Quadros em tamanho fixo, centralizados e escalados (--s vem do ResizeObserver). */
+.dl-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(var(--s, 0.8));
+}
+
+/* Botão de pausa: congela também as animações em CSS que estiverem no meio. */
+.dl-stage[data-paused] * {
+  animation-play-state: paused !important;
+}

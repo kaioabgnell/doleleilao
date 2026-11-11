@@ -1,0 +1,35 @@
+# dependências e builds
+node_modules/
+.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Laravel (apps/api)
+apps/api/vendor/
+apps/api/.env
+apps/api/storage/*.key
+apps/api/public/storage
+apps/api/public/hot
+
+# ambiente
+.env
+.env.*
+!.env.example
+infra/.env
+
+# sistema
+.DS_Store
+*.log
+
+# Claude Code: configurações locais
+.claude/settings.local.json
+.impeccable/config.local.json
+
+# binários locais (PHP 8.4 do projeto)
+.tools/
+
+# taste-skill: histórico dos sorteios, capturas e perfis do Chrome dos verificadores
+.taste-skill/

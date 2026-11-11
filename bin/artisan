@@ -1,0 +1,4 @@
+#!/bin/sh
+# Artisan da API (apps/api) com o PHP 8.4 do projeto. Uso: bin/artisan migrate
+DIR=$(cd "$(dirname "$0")" && pwd)
+cd "$DIR/../apps/api" && exec "$DIR/php" artisan "$@"

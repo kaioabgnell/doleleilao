@@ -1,0 +1,213 @@
+{
+  "colors": [
+    "copper",
+    "graphite",
+    "black",
+    "navy",
+    "blue",
+    "emerald",
+    "wine",
+    "purple",
+    "petrol",
+    "dark-gold"
+  ],
+  "email": {
+    "copper": {
+      "button": "#8A5A38",
+      "onButton": "#FFFFFF",
+      "link": "#8A5A38"
+    },
+    "graphite": {
+      "button": "#2F3B3E",
+      "onButton": "#FFFFFF",
+      "link": "#2F3B3E"
+    },
+    "black": {
+      "button": "#111111",
+      "onButton": "#FFFFFF",
+      "link": "#111111"
+    },
+    "navy": {
+      "button": "#1E3A5F",
+      "onButton": "#FFFFFF",
+      "link": "#1E3A5F"
+    },
+    "blue": {
+      "button": "#1D5FBF",
+      "onButton": "#FFFFFF",
+      "link": "#1D5FBF"
+    },
+    "emerald": {
+      "button": "#0F6B4F",
+      "onButton": "#FFFFFF",
+      "link": "#0F6B4F"
+    },
+    "wine": {
+      "button": "#7A1F2B",
+      "onButton": "#FFFFFF",
+      "link": "#7A1F2B"
+    },
+    "purple": {
+      "button": "#5B3A8C",
+      "onButton": "#FFFFFF",
+      "link": "#5B3A8C"
+    },
+    "petrol": {
+      "button": "#0E5E6F",
+      "onButton": "#FFFFFF",
+      "link": "#0E5E6F"
+    },
+    "dark-gold": {
+      "button": "#8A6A12",
+      "onButton": "#FFFFFF",
+      "link": "#8A6A12"
+    }
+  },
+  "fonts": [
+    "inter",
+    "roboto",
+    "poppins",
+    "dm-sans",
+    "playfair"
+  ],
+  "backgrounds": {
+    "white": {
+      "dark": false,
+      "allowedColors": [
+        "copper",
+        "graphite",
+        "black",
+        "navy",
+        "blue",
+        "emerald",
+        "wine",
+        "purple",
+        "petrol",
+        "dark-gold"
+      ]
+    },
+    "ivory": {
+      "dark": false,
+      "allowedColors": [
+        "copper",
+        "graphite",
+        "black",
+        "navy",
+        "blue",
+        "emerald",
+        "wine",
+        "purple",
+        "petrol",
+        "dark-gold"
+      ]
+    },
+    "ebony": {
+      "dark": true,
+      "allowedColors": [
+        "copper",
+        "dark-gold"
+      ]
+    },
+    "sand": {
+      "dark": false,
+      "allowedColors": [
+        "copper",
+        "graphite",
+        "black",
+        "navy",
+        "blue",
+        "emerald",
+        "wine",
+        "purple",
+        "petrol",
+        "dark-gold"
+      ]
+    },
+    "mist": {
+      "dark": false,
+      "allowedColors": [
+        "copper",
+        "graphite",
+        "black",
+        "navy",
+        "blue",
+        "emerald",
+        "wine",
+        "purple",
+        "petrol",
+        "dark-gold"
+      ]
+    },
+    "ice": {
+      "dark": false,
+      "allowedColors": [
+        "copper",
+        "graphite",
+        "black",
+        "navy",
+        "blue",
+        "emerald",
+        "wine",
+        "purple",
+        "petrol",
+        "dark-gold"
+      ]
+    },
+    "light-graphite": {
+      "dark": false,
+      "allowedColors": [
+        "copper",
+        "graphite",
+        "black",
+        "navy",
+        "blue",
+        "emerald",
+        "wine",
+        "purple",
+        "petrol",
+        "dark-gold"
+      ]
+    }
+  },
+  "templates": {
+    "watches": {
+      "backgrounds": [
+        "white",
+        "ivory",
+        "ebony"
+      ],
+      "defaults": {
+        "primary": "copper",
+        "accent": "dark-gold",
+        "background": "ivory",
+        "headingFont": "playfair"
+      }
+    },
+    "fashion": {
+      "backgrounds": [
+        "white",
+        "sand",
+        "mist"
+      ],
+      "defaults": {
+        "primary": "black",
+        "accent": "wine",
+        "background": "white",
+        "headingFont": "dm-sans"
+      }
+    },
+    "electronics": {
+      "backgrounds": [
+        "white",
+        "ice",
+        "light-graphite"
+      ],
+      "defaults": {
+        "primary": "blue",
+        "accent": "navy",
+        "background": "ice",
+        "headingFont": "inter"
+      }
+    }
+  }
+}

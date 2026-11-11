@@ -1,0 +1,40 @@
+# Regras de camadas (Clean Architecture, specs/04-arquitetura.md).
+# Domain não depende de nada externo. Application depende só de Domain.
+deptrac:
+  paths:
+    - ./src
+    - ./app
+  layers:
+    - name: Domain
+      collectors:
+        - type: directory
+          value: src/.*/Domain/.*
+    - name: Application
+      collectors:
+        - type: directory
+          value: src/.*/Application/.*
+    - name: Infrastructure
+      collectors:
+        - type: directory
+          value: src/.*/Infrastructure/.*
+    - name: Http
+      collectors:
+        - type: directory
+          value: app/.*
+    - name: Framework
+      collectors:
+        - type: classNameRegex
+          value: '#^(Illuminate|Laravel|Symfony|Carbon|Psr)\\#'
+  ruleset:
+    Domain: ~
+    Application:
+      - Domain
+    Infrastructure:
+      - Domain
+      - Application
+      - Framework
+    Http:
+      - Domain
+      - Application
+      - Infrastructure
+      - Framework

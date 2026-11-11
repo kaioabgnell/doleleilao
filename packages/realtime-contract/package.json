@@ -1,0 +1,16 @@
+{
+  "name": "@doleleilao/realtime-contract",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Contrato do tempo real do Dole Leilão: canais, nomes e campos dos eventos do Reverb (specs/06-api-e-tempo-real.md). Fonte única para web e app.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@doleleilao/design-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Tokens de design do Dole Leilão (marca, estados do leilão, personalização das lojas). Fonte única para web e app.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.css": "./dist/tokens.css"
+  },
+  "scripts": {
+    "build": "node scripts/build-css.ts",
+    "test": "node --test src/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

@@ -1,0 +1,9 @@
+#!/bin/sh
+# Composer rodando com o PHP 8.4 do projeto. Usa .tools/composer.phar (versão atual) se existir.
+DIR=$(cd "$(dirname "$0")" && pwd)
+if [ -f "$DIR/../.tools/composer.phar" ]; then
+  COMPOSER_BIN="$DIR/../.tools/composer.phar"
+else
+  COMPOSER_BIN=$(command -v composer) || { echo "Composer não encontrado" >&2; exit 1; }
+fi
+exec "$DIR/php" "$COMPOSER_BIN" "$@"

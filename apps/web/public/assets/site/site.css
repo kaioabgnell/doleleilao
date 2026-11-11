@@ -1,0 +1,290 @@
+/*
+  Dole Leilão, site institucional: CSS da página (só o que fica dentro dos visuais, como pede a taste-skill:
+  references/system.md e sections-library.md). A janela do pregão (d-*) vem de assets/layout/demo.css,
+  com as cores trocadas pelos tokens da página.
+*/
+
+/* ---------- Janela do pregão (hero) e registro de lances (segurança) ---------- */
+.d-win { background: #fff; color: var(--p-ink); border-radius: 12px; overflow: hidden; font: 400 14px/1.4 var(--font-text);
+         box-shadow: 0 0 0 1px rgb(47 59 62 / .08), 0 24px 60px -28px rgb(47 59 62 / .45); text-align: left; }
+.d-win__bar { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 14px; border-bottom: 1px solid rgb(47 59 62 / .08); font-size: 13px; color: var(--p-muted); }
+.d-win__bar b { color: var(--p-ink); font-weight: 500; }
+.d-win__dots { display: flex; gap: 6px; } .d-win__dots i { width: 10px; height: 10px; border-radius: 50%; background: #e3e1dc; }
+.d-win__body { display: grid; grid-template-columns: 168px 1fr; min-height: 420px; }
+.d-side { padding: 14px 10px; border-right: 1px solid rgb(47 59 62 / .08); display: grid; align-content: start; gap: 2px; font-size: 13px; color: var(--p-muted); }
+.d-side > span { display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 8px; border-radius: 7px; }
+.d-side > span.is-on { background: var(--p-surface); color: var(--p-ink); font-weight: 500; }
+.d-side > span i { width: 14px; height: 14px; border-radius: 4px; background: currentColor; opacity: .3; flex: none; }
+.d-side > span em { margin-left: auto; font-style: normal; font-variant-numeric: tabular-nums; }
+.d-side .d-side__label { height: 26px; margin-top: 8px; }
+.d-main { padding: 16px 18px; display: grid; align-content: start; gap: 12px; min-width: 0; }
+.d-main__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.d-main__head h4 { font: 500 16px/1.2 var(--font-text); letter-spacing: -0.01em; margin: 0; color: inherit; }
+.d-btn { display: inline-flex; align-items: center; height: 28px; padding: 0 10px; border-radius: 7px; background: var(--p-ink); color: #fff; font-size: 13px; font-weight: 500; white-space: nowrap; }
+.d-tabs { display: flex; gap: 4px; font-size: 13px; } .d-tabs span { padding: 4px 10px; border-radius: 99px; color: var(--p-muted); white-space: nowrap; }
+.d-tabs span.is-on { background: var(--p-surface); color: var(--p-ink); font-weight: 500; }
+.d-rows { display: grid; border-top: 1px solid rgb(47 59 62 / .08); }
+.d-row { display: grid; grid-template-columns: 40px minmax(0, 1fr) 96px 84px; align-items: center; gap: 12px; padding: 9px 2px; border-bottom: 1px solid rgb(47 59 62 / .08); font-size: 13px; }
+.d-row img, .d-row .d-thumb { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; background: var(--p-surface); }
+.d-row b { display: block; font-weight: 500; color: var(--p-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.d-row small { color: var(--p-muted); font-size: 13px; }
+.d-row .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.d-row .when { color: var(--p-muted); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.d-chip { justify-self: end; display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 8px; border-radius: 99px; font-size: 13px; font-weight: 500; background: #e4f2e9; color: #17673f; white-space: nowrap; }
+.d-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.d-chip--live { background: #fbe6e3; color: #a3271b; }
+.d-chip--wait { background: var(--p-surface); color: var(--p-muted); }
+.d-card { background: #fff; color: var(--p-ink); border-radius: 12px; padding: 14px 16px; font: 400 14px/1.4 var(--font-text); text-align: left;
+          box-shadow: 0 0 0 1px rgb(47 59 62 / .08), 0 18px 44px -20px rgb(47 59 62 / .45); }
+.d-card h5 { margin: 0 0 6px; font: 500 14px/1.3 var(--font-text); }
+.d-card__row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.d-note__line { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 13px; color: var(--p-muted); }
+.d-note__line b { color: var(--p-ink); font-weight: 500; }
+.d-note__line i { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--p-surface); color: var(--p-ink); font: 500 11px/1 var(--font-mono); font-style: normal; flex: none; }
+@media (max-width: 639px) {
+  .d-win__body { grid-template-columns: 1fr; } .d-side { display: none; }
+  .d-row { grid-template-columns: 40px minmax(0, 1fr) 84px; } .d-row .num { display: none; }
+}
+
+/* ---------- O auditório (app-frame: sections-library.md, app-frame, a receita inteira) ---------- */
+.app.ui { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); margin-top: var(--s-7); background: var(--u-bg); border: 1px solid var(--u-border); border-radius: var(--u-r); box-shadow: var(--u-shadow); }
+.app > .app__pane { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
+.app > .app__pane + .app__pane { border-left: 1px solid var(--u-line); }
+.app > .app__pane > .ui-panel { width: 100%; border: 0; border-radius: 0; box-shadow: none; }
+.app > .app__pane::after { content: ""; position: absolute; inset: auto 0 0 0; height: 64px; background: linear-gradient(transparent, var(--u-bg)); pointer-events: none; }
+@media (min-width: 1024px) and (max-width: 1279px) { .app.ui { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
+@media (max-width: 1023px) {
+  .app.ui { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .app > .app__pane--list { max-height: 252px; }
+  .app > .app__pane--list::after { display: none; }
+  .app .ui-win__side { display: none; }
+  .app .ui-win__body { grid-template-columns: minmax(0, 1fr); }
+  .app > .app__pane + .app__pane { border-left: 0; border-top: 1px solid var(--u-line); }
+}
+@media (max-width: 639px) {
+  .app.ui { grid-template-rows: minmax(0, 1fr); }
+  .app > .app__pane--list { display: none; }
+  .app > .app__pane + .app__pane { border-top: 0; }
+}
+/* a foto da peça no lugar das iniciais da lista */
+.ui-win__row img.ui-avatar { object-fit: cover; padding: 0; }
+
+/* ---------- Recursos: uma altura para os painéis do grupo ---------- */
+#recursos .panel { --p-h: 300px; }
+@media (min-width: 640px) and (max-width: 1023px) { #recursos .panel { --p-h: 260px; } }
+@media (max-width: 639px) { #recursos .panel { --p-h: 180px; } }
+
+/* ---------- Passos: a foto de cada passo enche o painel ---------- */
+#passos .panel { --p-h: 336px; }
+@media (max-width: 639px) { #passos .panel { --p-h: 320px; } }
+
+/* ---------- Modelos: a captura da loja cortada pelo canto do quadro ---------- */
+#modelos .shot { width: 760px; max-width: none; border-radius: 10px; box-shadow: 0 0 0 1px rgb(0 0 0 / .08), 0 24px 60px -28px rgb(0 0 0 / .5); display: block; }
+@media (max-width: 1023px) { #modelos .shot { width: 640px; } }
+
+/* ---------- Preços: as faixas e o simulador ---------- */
+.fee { display: grid; gap: var(--s-3); margin-top: var(--s-6); }
+.fee label { font-size: var(--t-small); font-weight: 500; }
+.fee__field { display: flex; align-items: center; gap: var(--s-2); height: 48px; padding: 0 var(--s-4); border: 1px solid var(--line-strong); border-radius: var(--r-sm); background: #fff; }
+.fee__field:focus-within { outline: 2px solid var(--action); outline-offset: 2px; }
+.fee__field span { color: var(--muted); }
+.fee__field input { flex: 1; min-width: 0; height: 100%; border: 0; background: transparent; font: 500 18px/1 var(--font-text); color: var(--ink); font-variant-numeric: tabular-nums; outline: none; }
+.fee output { font-size: var(--t-body); font-variant-numeric: tabular-nums; }
+.plan-rows { display: grid; margin: 0; padding: 0; list-style: none; }
+.plan-rows li { display: flex; justify-content: space-between; gap: var(--s-4); padding: var(--s-3) 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.plan-rows li b { font-weight: 500; }
+
+/* ---------- Segurança: o registro do pregão no quadro ---------- */
+.log .d-row { grid-template-columns: 64px minmax(0, 1fr) 96px 84px; }
+.log .d-row .when { text-align: left; }
+@media (max-width: 639px) { .log .d-row { grid-template-columns: 56px minmax(0, 1fr) 84px; } .log .d-row .num { display: none; } }
+
+/* ---------- Listas de fatos sem marcador (Segurança) ---------- */
+.plain-list { list-style: none; padding: 0; margin-bottom: 0; }
+
+/* Quadros de Modelos e Segurança: a proporção do split (80%), que o .frame--lit (50%) sobrescreve */
+:is(#modelos, #seguranca) .frame--split { --ratio: 80%; }
+@media (max-width: 639px) { :is(#modelos, #seguranca) .frame--split { --ratio: 100%; } }
+
+/* Dúvidas: as perguntas em duas colunas (dois grupos de quatro, uma tela cada) */
+.faq.faq--grid { row-gap: 0; }
+.faq.faq--grid > .faq__item { align-content: start; }
+
+/* Passos e Preços: duas telas no tablet e no celular, onde as colunas empilham */
+@media (min-width: 640px) and (max-width: 1279px) { #passos, #precos { --h: 2; } }
+@media (max-width: 639px) { #passos, #recursos, #precos, #duvidas { --hm: 2; } }
+
+/* Modelos: os três textos com a mesma altura, para a seção não mudar de tamanho ao trocar de aba */
+#modelos [role="tabpanel"] { min-height: 7.5em; }
+
+/* Hero no celular: a janela mostra só as duas primeiras linhas, para nenhuma ficar cortada pela borda do quadro */
+@media (max-width: 639px) { .hero__art .d-row:nth-child(n+3) { display: none; } }
+
+/* No computador, o quadro de Modelos e Segurança vai até perto do pé da tela (o espaço até a próxima seção fica como o das outras) */
+@media (min-width: 1024px) { :is(#modelos, #seguranca) .frame--split { --ratio: 100%; } }
+
+/* Moderação no celular: o painel é baixo, então só as duas primeiras regras, inteiras e fora do esmaecido */
+@media (max-width: 639px) { #recursos .ui-toggles .ui-tg:nth-child(n+3) { display: none; } }
+
+/* =====================================================================================
+   v2 (09/11/2026): capítulos de cor, neumorfismo e as telas reais do produto
+   ===================================================================================== */
+
+/* ---------- Neumorfismo: elementos elevados e embutidos na própria cor do fundo ---------- */
+:root { --neu-hi: rgb(255 255 255 / .82); --neu-lo: rgb(122 74 43 / .17); }
+.ground-surface { --neu-hi: rgb(255 255 255 / .7); --neu-lo: rgb(122 74 43 / .2); }
+.neu-up { box-shadow: -10px -10px 24px var(--neu-hi), 14px 14px 32px var(--neu-lo); border-color: transparent !important; }
+.neu-in { box-shadow: inset 5px 5px 12px var(--neu-lo), inset -5px -5px 12px var(--neu-hi); border-color: transparent !important; }
+
+/* Passos: as fotos em molduras elevadas; o número num botão embutido */
+#passos .card--open > .panel { box-shadow: -10px -10px 24px var(--neu-hi), 14px 14px 32px var(--neu-lo); border: 8px solid var(--bg); }
+#passos .step-num { box-shadow: inset 3px 3px 6px var(--neu-lo), inset -3px -3px 6px var(--neu-hi); border-color: transparent; }
+
+/* Recursos: os painéis coloridos (gradient-mesh) saltam da névoa */
+#recursos .card--open > .panel { box-shadow: -10px -10px 24px var(--neu-hi), 14px 14px 32px var(--neu-lo); }
+
+/* Preços: cartões elevados no fundo areia, o simulador e as linhas embutidos */
+#precos .card--plan { background: var(--bg); border-color: transparent; box-shadow: -12px -12px 28px var(--neu-hi), 16px 16px 36px var(--neu-lo); }
+#precos .card--plan.is-featured { box-shadow: -12px -12px 28px var(--neu-hi), 16px 16px 36px var(--neu-lo), inset 0 0 0 2px var(--action); }
+#precos .fee__field { background: var(--bg); border-color: transparent; box-shadow: inset 5px 5px 12px var(--neu-lo), inset -5px -5px 12px var(--neu-hi); }
+
+/* ---------- Auditório na faixa cobre: o cobre escurecido até o texto creme passar 7:1 ---------- */
+#auditorio.ground-brand { --bg: #74472a; --surface: #845336; --muted: #ead9cb; }
+
+/* ---------- Modelos e rodapé no grafite: o lime da paleta DOLE como destaque ---------- */
+.ground-inverse { --accent: #c5f36a; --accent-ink: #2f3b3e; --action: #c5f36a; --action-ink: #2f3b3e; }
+#modelos .tab[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+/* ---------- Hero: o painel do leiloeiro (réplica da tela real de pregão) ---------- */
+.pn { padding: 16px 18px 18px; display: grid; gap: 14px; font-size: 13px; color: var(--p-ink); }
+.pn__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.pn__head h4 { margin: 0; display: flex; align-items: center; gap: 8px; font: 500 18px/1.2 var(--font-text); letter-spacing: -0.01em; }
+.pn__head small { display: block; margin-top: 2px; color: var(--p-muted); font-size: 13px; }
+.pn__live, .pn__chip--live { display: inline-flex; align-items: center; gap: 5px; height: 20px; padding: 0 8px; border-radius: 99px; background: #c0362c; color: #fff; font: 500 11px/1 var(--font-text); letter-spacing: .02em; white-space: nowrap; }
+.pn__live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+.pn__rt { flex: none; height: 24px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 99px; background: #e4f2e9; color: #17673f; font-size: 12px; font-weight: 500; white-space: nowrap; }
+.pn__item { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 16px; padding: 14px; border: 1px solid #e8b7b1; border-radius: 12px; background: #fff; }
+.pn__item img { width: 112px; height: 112px; object-fit: cover; border-radius: 10px; }
+.pn__info { min-width: 0; display: grid; gap: 8px; align-content: start; }
+.pn__row1 { display: flex; justify-content: space-between; align-items: center; color: var(--p-muted); }
+.pn__title { font-size: 16px; font-weight: 500; color: var(--p-ink); }
+.pn__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.pn__stats dt { font-size: 11px; letter-spacing: .04em; color: var(--p-muted); }
+.pn__stats dd { margin: 2px 0 0; font: 500 17px/1.2 var(--font-text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pn__info > small { color: var(--p-muted); }
+.pn__ctrl { display: flex; flex-wrap: wrap; gap: 6px; }
+.pn__ctrl span { display: inline-flex; align-items: center; height: 30px; padding: 0 10px; border: 1px solid #d9dcdb; border-radius: 7px; background: #fff; font-weight: 500; white-space: nowrap; }
+.pn__ctrl .pn__danger { border-color: transparent; color: #b4372d; }
+.pn__cols { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 12px; }
+.pn__box { border: 1px solid rgb(47 59 62 / .1); border-radius: 12px; background: #fff; padding: 12px 14px; min-width: 0; }
+.pn__box h5 { margin: 0 0 8px; font: 500 14px/1.2 var(--font-text); }
+.pn__list { list-style: none; margin: 0; padding: 0; }
+.pn__list li { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 8px 0; border-top: 1px solid rgb(47 59 62 / .08); }
+.pn__list li:first-child { border-top: 0; font-weight: 500; }
+.pn__list li b { font-weight: inherit; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pn__list em { font-style: normal; color: var(--p-muted); font-variant-numeric: tabular-nums; }
+.pn__msg { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 8px; margin-top: 8px; }
+.pn__msg i { width: 26px; height: 26px; border-radius: 50%; background: #845336; color: #fff; display: grid; place-items: center; font: 500 11px/1 var(--font-text); font-style: normal; }
+.pn__msg span { display: block; padding: 6px 10px; border-radius: 10px; background: #f1eee8; }
+.pn__msg small { display: block; color: var(--p-muted); font-size: 12px; }
+@media (max-width: 1279px) { .pn__cols { grid-template-columns: 1fr; } .pn__cols .pn__box + .pn__box { display: none; } }
+@media (max-width: 639px) {
+  .pn { padding: 12px; gap: 10px; }
+  .pn__head small, .pn__rt, .pn__ctrl, .pn__info > small, .pn__cols { display: none; }
+  .pn__item { grid-template-columns: 72px minmax(0, 1fr); padding: 10px; gap: 10px; }
+  .pn__item img { width: 72px; height: 72px; }
+  .pn__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pn__stats > div:nth-child(3) { display: none; }
+}
+
+/* ---------- Auditório: a tela do participante (réplica da tela real, com o ganhador) ---------- */
+.app.app--aud { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.aud-stage { padding: 20px 24px 24px; display: grid; gap: 10px; align-content: start; color: var(--u-ink, #2f3b3e); }
+.aud-top { display: flex; justify-content: space-between; align-items: center; color: #616a6b; font-size: 14px; }
+.aud-chip { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 99px; background: #f1eee8; color: #4c5556; font-size: 13px; font-weight: 500; }
+.aud-stage h4 { margin: 0; font: 500 26px/1.15 var(--font-display); letter-spacing: -0.02em; }
+.aud-photo { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 4 / 3; background: #f1eee8; }
+.aud-photo img { width: 100%; height: 100%; object-fit: cover; }
+.aud-side { padding: 16px; display: grid; gap: 12px; align-content: start; }
+.aud-result { border: 2px solid #1f5f43; border-radius: 14px; padding: 14px 16px; display: grid; gap: 10px; }
+.aud-result__row { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; letter-spacing: .04em; color: #616a6b; }
+.aud-result__big { display: flex; justify-content: space-between; gap: 12px; font: 600 26px/1 var(--font-text); font-variant-numeric: tabular-nums; color: #2f3b3e; }
+.aud-result__won { display: flex; align-items: center; justify-content: center; height: 40px; border-radius: 8px; background: #1f5f43; color: #fff; font-weight: 500; }
+.aud-result small { color: #616a6b; font-size: 13px; }
+.aud-bids { border: 1px solid rgb(47 59 62 / .1); border-radius: 14px; padding: 12px 16px; font-size: 13px; }
+.aud-bids h5 { margin: 0 0 6px; font: 500 14px/1.2 var(--font-text); }
+.aud-bids p { display: flex; justify-content: space-between; margin: 4px 0 0; font-variant-numeric: tabular-nums; }
+.aud-bids p:first-of-type { font-weight: 500; }
+.aud-side > .ui-panel { border: 1px solid rgb(47 59 62 / .1); border-radius: 14px; box-shadow: none; }
+
+/* o cartão do ganhador, sobre o canto do palco */
+.aud-win { position: absolute; right: 20px; bottom: 20px; width: min(300px, 72%); padding: 20px 18px 18px; border-radius: 16px; background: #fff; text-align: center; color: #2f3b3e;
+  box-shadow: 0 0 0 1px rgb(47 59 62 / .06), 0 24px 48px -20px rgb(47 59 62 / .55); display: grid; gap: 6px; justify-items: center; }
+.aud-win__cup { width: 48px; height: 48px; border-radius: 50%; background: #e4f2e9; color: #1f5f43; display: grid; place-items: center; }
+.aud-win b { font: 600 19px/1.2 var(--font-display); letter-spacing: -0.01em; }
+.aud-win p { margin: 0; font-size: 13px; line-height: 1.45; color: #4c5556; }
+.aud-win__btn { margin-top: 6px; width: 100%; height: 36px; display: grid; place-items: center; border-radius: 8px; background: #1f5f43; color: #fff; font-size: 13px; font-weight: 500; }
+.aud-win__link { font-size: 13px; font-weight: 500; color: #1f5f43; }
+/* confete: cai uma vez quando o auditório aparece e de novo quando o ponteiro entra no cartão */
+.aud-confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.aud-confetti i { position: absolute; top: -10%; width: 7px; height: 12px; border-radius: 2px; opacity: 0; }
+.aud-confetti i:nth-child(3n) { background: #e9c46a; } .aud-confetti i:nth-child(3n+1) { background: #3f8f6a; } .aud-confetti i:nth-child(3n+2) { background: #2f3b3e; }
+@media (prefers-reduced-motion: no-preference) {
+  .aud-photo.is-playing .aud-confetti i { animation: aud-fall 2.6s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(var(--d) * 1ms); }
+}
+@keyframes aud-fall {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0deg); }
+  10% { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(var(--x), 360px, 0) rotate(var(--r)); }
+}
+@media (max-width: 1023px) { .app.app--aud { grid-template-columns: minmax(0, 1fr); } .app--aud > .app__pane--list { max-height: none; } .aud-photo { aspect-ratio: 16 / 9; } }
+
+/* Hero collage: o cartão do resultado no canto inferior esquerdo do quadro (do modelo hero-collage.html) */
+.hero__art > .ly-piece--note { left: var(--s-6); bottom: var(--s-6); width: 300px; z-index: 2; }
+@media (max-width: 1023px) { .hero__art > .ly-piece--note { left: var(--s-4); bottom: var(--s-4); width: 270px; } }
+
+/* Auditório: o palco ocupa a altura da janela; a foto fica com o que sobra, para o cartão do ganhador caber inteiro */
+.app--aud > .aud-stage { display: flex; flex-direction: column; }
+.app--aud .aud-photo { flex: 1 1 auto; min-height: 240px; aspect-ratio: auto; }
+.app--aud .aud-photo > img { position: absolute; inset: 0; }
+.app--aud .aud-photo > img { object-position: 50% 18%; }
+
+/* v2, ajustes da verificação */
+.aud-title { margin: 0; font: 500 26px/1.15 var(--font-display); letter-spacing: -0.02em; }
+.aud-bids .aud-bids__h { margin: 0 0 6px; font: 500 14px/1.2 var(--font-text); }
+.app--aud > .aud-stage { position: relative; }
+.app--aud > .aud-stage > .aud-win { right: 40px; bottom: 40px; }
+.pn__ctrl .pn__danger { border-color: #d9dcdb; }
+/* o botão principal tem uma cor só na página inteira: no grafite ele continua cobre (o lime fica nas abas e na linha) */
+.footer.ground-inverse { --action: var(--p-action); --action-ink: var(--p-action-ink); }
+/* texto de leitura dos passos na tinta principal (7:1 sobre a areia) */
+#passos .card p { color: var(--ink); }
+@media (max-width: 639px) {
+  /* no celular, o auditório mostra a foto e o cartão do ganhador (o resultado e o chat ficam para a tela grande) */
+  .app.app--aud { grid-template-rows: minmax(0, 1fr); }
+  .app--aud > .app__pane--list { display: flex; }
+  .app--aud > .app__pane--open { display: none; }
+  .app--aud > .aud-stage > .aud-win { right: 16px; bottom: 16px; left: 16px; width: auto; }
+  /* registro: só as linhas inteiras, fora do esmaecido */
+  .log .d-row:nth-child(n+4) { display: none; }
+}
+/* chat do painel como texto corrido (não como balão, que lê como botão) e o título do item no tamanho da interface */
+.pn__msg span { padding: 0; border-radius: 0; background: none; }
+.aud-title { font: 500 18px/1.25 var(--font-text); letter-spacing: -0.01em; }
+.aud-bids > div { display: flex; justify-content: space-between; margin: 4px 0 0; font-variant-numeric: tabular-nums; }
+.aud-bids > div.aud-bids__h { display: block; margin: 0 0 6px; }
+.aud-bids > div:nth-of-type(2) { font-weight: 500; }
+.aud-win > div { margin: 0; font-size: 13px; line-height: 1.45; color: #4c5556; }
+/* No celular, os fundos bg-mist e bg-band (backgrounds.css) trocam a altura mínima e o respiro da seção:
+   aqui elas voltam às medidas do sistema (uma ou duas telas inteiras, conteúdo no topo) */
+@media (max-width: 639px) {
+  #recursos.bg-mist, #seguranca.bg-band { min-height: calc(var(--hm, var(--h, 1)) * 100lvh); padding-top: var(--padt); padding-bottom: calc(var(--padb) + var(--bar)); align-content: stretch; }
+}
+
+/* Abaixo de 1280px, os fundos bg-mist e bg-band também trocam a altura e o respiro da seção: voltam às medidas do sistema */
+@media (max-width: 1279px) {
+  #recursos.bg-mist, #seguranca.bg-band { padding-top: var(--padt); padding-bottom: calc(var(--padb) + var(--bar)); }
+}
+@media (min-width: 640px) and (max-width: 1279px) {
+  #recursos.bg-mist, #seguranca.bg-band { min-height: calc(var(--h, 1) * 100svh); display: flex; flex-direction: column; align-content: normal; }
+}
+@media (min-width: 1024px) and (max-width: 1279px) { #duvidas { --h: 2; } }

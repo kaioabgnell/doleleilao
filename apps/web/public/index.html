@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="pt-BR" data-type="software" data-radius="soft" data-ground="sand" data-buttons="solid" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dole Leilão: plataforma de leilão online ao vivo para lojistas</title>
+<meta name="description" content="Monte sua loja de leilões, marque o pregão e venda o estoque parado para seus seguidores do Instagram, com lances pelo celular. Grátis até 30/11/2026.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Dole Leilão">
+<meta property="og:title" content="Dole Leilão: plataforma de leilão online ao vivo para lojistas">
+<meta property="og:description" content="Sua loja de leilões com auditório ao vivo, lance automático e chat. Todas as funcionalidades grátis até 30/11/2026.">
+<meta property="og:image" content="/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/simbolo.svg" type="image/svg+xml">
+<meta name="theme-color" content="#faf9f6">
+<!-- <link rel="canonical" href="https://doleleilao.com.br/"> quando o domínio estiver no ar -->
+<meta name="site-kind" content="software">
+<meta name="page-type" content="software">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<style>
+:root {
+  --p-bg: #faf9f6; --p-surface: #f1eee8; --p-ink: #2f3b3e; --p-muted: #616a6b;
+  --p-accent: #8a5a38; --p-accent-ink: #faf9f6; --p-action: #8a5a38; --p-action-ink: #faf9f6;
+  --p-inv-bg: #2f3b3e; --p-inv-surface: #3b4749; --p-inv-ink: #faf9f6; --p-inv-muted: #b3b8b6;
+  --p-inv-accent: #faf9f6; --p-inv-accent-ink: #2f3b3e; --p-inv-action: #faf9f6; --p-inv-action-ink: #2f3b3e;
+  --font-display: "Host Grotesk", system-ui, sans-serif;
+  --font-text: "Host Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.04em;
+}
+</style>
+<link rel="stylesheet" href="assets/ui/base.css">
+<link rel="stylesheet" href="assets/ui/window/fragment.css">
+<link rel="stylesheet" href="assets/ui/chat/fragment.css">
+<link rel="stylesheet" href="assets/ui/notify/fragment.css">
+<link rel="stylesheet" href="assets/ui/toggles/fragment.css">
+<link rel="stylesheet" href="assets/ui/checklist/fragment.css">
+<link rel="stylesheet" href="assets/ui/slider/fragment.css">
+<link rel="stylesheet" href="assets/site/site.css">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="assets/backgrounds/backgrounds.js"></script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
+<link rel="modulepreload" href="assets/moments/line-carries-colour/moment.js">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://doleleilao.com.br/#organizacao","name":"Dole Leilão","url":"https://doleleilao.com.br","logo":"https://doleleilao.com.br/brand/logo-vertical.svg"},
+{"@type":"WebSite","@id":"https://doleleilao.com.br/#site","url":"https://doleleilao.com.br","name":"Dole Leilão","inLanguage":"pt-BR","publisher":{"@id":"https://doleleilao.com.br/#organizacao"}},
+{"@type":"SoftwareApplication","name":"Dole Leilão","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://doleleilao.com.br","description":"Plataforma de leilão online ao vivo para lojistas: loja própria, auditório com lances em tempo real, lance automático e chat.","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL","description":"Gratuito, com todas as funcionalidades, até 30/11/2026."},"publisher":{"@id":"https://doleleilao.com.br/#organizacao"}},
+{"@type":"FAQPage","mainEntity":[
+{"@type": "Question", "name": "A Dole Leilão é gratuita mesmo? Até quando?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Até 30/11/2026 todas as funcionalidades são gratuitas, e o cadastro não pede cartão de crédito."}},
+{"@type": "Question", "name": "Como funciona a taxa a partir de 1º/12/2026?", "acceptedAnswer": {"@type": "Answer", "text": "Vale só para itens arrematados, pela faixa de valor do item. O leiloeiro escolhe quem paga: ele ou quem arrematou. Em breve, mais informações."}},
+{"@type": "Question", "name": "Pago alguma coisa se o item não for vendido?", "acceptedAnswer": {"@type": "Answer", "text": "Não. Não há mensalidade nem custo para criar a loja ou fazer o leilão. Item sem lance não paga taxa."}},
+{"@type": "Question", "name": "Como meus seguidores do Instagram participam?", "acceptedAnswer": {"@type": "Answer", "text": "Pelo link da loja na bio, nos stories ou no WhatsApp. Para dar lance, fazem cadastro com CPF e e-mail confirmado."}},
+{"@type": "Question", "name": "Como funciona o lance automático?", "acceptedAnswer": {"@type": "Answer", "text": "O participante informa o máximo. O sistema cobre os outros lances com o mínimo necessário e avisa quando o máximo é superado."}},
+{"@type": "Question", "name": "E se alguém der um lance no último segundo?", "acceptedAnswer": {"@type": "Answer", "text": "O tempo do item é prorrogado, por padrão em 15 segundos. O cronômetro vem do servidor e é o mesmo em todos os celulares."}},
+{"@type": "Question", "name": "Posso banir participantes?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. O banimento vale na hora: a pessoa sai do auditório, não escreve no chat e não dá mais lance na sua loja."}},
+{"@type": "Question", "name": "O pagamento do arremate passa pela plataforma?", "acceptedAnswer": {"@type": "Answer", "text": "Não. Você combina pagamento e entrega com o vencedor. O painel traz a mensagem pronta para o e-mail ou o WhatsApp."}}
+]}]}
+</script>
+</head>
+<body>
+<!-- type: software (site-kind software): plataforma de leilão online para lojistas e leiloeiros
+     deal: hero collage (film, o primeiro sorteio, pedia um vídeo do cliente: sorteado de novo só com ui), nav nav-centre,
+           close close-type, footer footer-columns, rhythm dark-band, buttons solid, mark: a logo do cliente (simbolo.svg),
+           palette: as cores do cliente via start.mjs brand (papel #faf9f6 e grafite #2f3b3e, um destaque: o cobre #8a5a38 da logo),
+           type host (Host Grotesk + JetBrains Mono), radius soft, ground sand
+     moments: word-highlight (#estoque, a frase do estoque parado), line-carries-colour (#modelos, a faixa escura)
+     v2 (09/11/2026, pedido do cliente: seções com cores, movimento e neumorfismo; referências pareto, pipefy, lumio, lovable):
+           effect painterly-landscape no hero (atrás do painel do leiloeiro), card grounds gradient-mesh em #recursos
+           (um tom por painel: cobre, verde, lime, grafite), CSS grounds bg-mist (#recursos) e bg-band (#seguranca);
+           capítulos: creme, cobre (#auditorio, a tela do participante), areia com neumorfismo (#passos, #precos),
+           grafite com o lime da paleta DOLE (#modelos e o rodapé).
+     voice: lojista direto. Pares: concreto, não frio; seguro, não alto. "Você" para o lojista, a plataforma como sujeito nas
+            linhas de recurso. Frases de 8 a 16 palavras. Sem humor no hero, nos preços e nas dúvidas. Palavras da casa:
+            loja, leilão, pregão, lance, arrematação, item. Nunca: palavras de virtude sobre nós, faixa de números.
+     direção de arte: o produto em ação (o pregão funcionando em cada tela, nunca descrito). -->
+
+<header class="nav nav--centre">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Pular para o conteúdo</a>
+    <a class="nav__logo" href="#top"><img src="/brand/simbolo.svg" alt="" width="28" height="28">Dole Leilão</a>
+    <nav class="nav__links" aria-label="Principal">
+      <div class="nav__item"><a class="nav__link" href="#auditorio">Auditório</a></div>
+      <div class="nav__item"><a class="nav__link" href="#recursos">Recursos</a></div>
+      <div class="nav__item"><a class="nav__link" href="#modelos">Modelos</a></div>
+      <div class="nav__item"><a class="nav__link" href="#precos">Preços</a></div>
+      <div class="nav__item"><a class="nav__link" href="#duvidas">Dúvidas</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="nav__link" href="/entrar" data-session-link>Entrar</a>
+      <a class="btn btn--primary" href="/cadastro">Criar loja grátis</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero--collage" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <h1 id="hero-h">Plataforma de leilão online para lojistas</h1>
+        <p class="hero__lead">Monte sua loja de leilões, marque dia e hora e leve seus seguidores do Instagram para um auditório ao vivo, com lances pelo celular. Grátis até 30/11/2026.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="/cadastro">Criar loja grátis</a><a class="btn btn--secondary" href="#auditorio">Ver o auditório</a></div>
+        <p class="hero__proof">Sem cartão de crédito e sem mensalidade.</p>
+      </div>
+      <div class="hero__art span-6 start-7" data-fx="painterly-landscape" data-fx-seed="7" role="img" aria-label="O painel do leiloeiro durante o Leilão de Sexta: o relógio bicolor em pregão com lance de R$ 1.850,00, os controles de pausar, encerrar e anular lance, a lista de itens e o chat">
+        <div class="ly-piece ly-piece--main d-win ui" aria-hidden="true">
+          <div class="d-win__bar"><span class="d-win__dots"><i></i><i></i><i></i></span><span>Painel do leiloeiro · <b>Pregão</b></span></div>
+          <div class="pn">
+            <div class="pn__head">
+              <div><h4>Leilão de Sexta <span class="pn__live">Ao vivo</span></h4><small>8 itens · 37 marcaram “Quero participar”</small></div>
+              <span class="pn__rt">Tempo real conectado</span>
+            </div>
+            <div class="pn__item">
+              <img src="assets/img/photo-f131189124-240.webp" width="112" height="112" alt="">
+              <div class="pn__info">
+                <div class="pn__row1"><span>Item 1 de 8</span><span class="pn__chip--live">Em pregão</span></div>
+                <b class="pn__title">Relógio de pulso bicolor</b>
+                <dl class="pn__stats"><div><dt>LANCE ATUAL</dt><dd>R$ 1.850,00</dd></div><div><dt>TEMPO</dt><dd>00:16</dd></div><div><dt>GANHANDO</dt><dd>carla.m</dd></div></dl>
+                <small>Próximo lance mínimo R$ 1.900,00 · 14 lances</small>
+                <div class="pn__ctrl"><span>Pausar</span><span>Encerrar agora</span><span>Pular</span><span class="pn__danger">Anular último lance</span></div>
+              </div>
+            </div>
+            <div class="pn__cols">
+              <div class="pn__box"><h5>Itens</h5>
+                <ol class="pn__list">
+                  <li><span>1</span><b>Relógio de pulso bicolor</b><em>R$ 1.850</em></li>
+                  <li><span>2</span><b>Fone de ouvido branco</b><em>Na fila</em></li>
+                  <li><span>3</span><b>Relógios de aço, lote com 4</b><em>Na fila</em></li>
+                  <li><span>4</span><b>Calças jeans, lote com 8</b><em>Na fila</em></li>
+                </ol>
+              </div>
+              <div class="pn__box"><h5>Chat do leilão</h5>
+                <div class="pn__msg"><i>AS</i><div><small>ana.souza · 20h05</small><span>Eu quero esse</span></div></div>
+                <div class="pn__msg"><i>LE</i><div><small>Leiloeiro · 20h05</small><span>Peça revisada, com caixa.</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ly-piece ly-piece--note d-card" aria-hidden="true" data-ly-steps="700">
+          <div class="d-card__row"><h5>Item 1 · Relógio bicolor</h5><span class="d-chip" data-step data-step-at="4">Vendido</span></div>
+          <div class="d-note__line" data-step><i>1</i><span><b>Dole 1</b>, R$ 1.850,00</span></div>
+          <div class="d-note__line" data-step><i>2</i><span><b>Dole 2</b>, ninguém cobriu</span></div>
+          <div class="d-note__line" data-step><i>3</i><span><b>Dole 3</b>, carla.m arrematou</span></div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section ground-brand" id="auditorio" aria-labelledby="auditorio-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <h2 class="span-5" id="auditorio-h">O auditório na tela de quem dá lance</h2>
+        <div class="span-6 start-7 stack-4">
+          <p>A foto do item, o lance atual, o cronômetro do servidor e o chat ficam na mesma tela. Quem vence vê a tela de ganhador na hora.</p>
+          <a class="link" href="#recursos">Ver os recursos do painel</a>
+        </div>
+      </div>
+      <div class="ui app app--aud fill" role="img" aria-label="O auditório visto por quem arrematou: a foto do lote de relógios, o resultado de R$ 2.650,00, os últimos lances, o chat e o aviso Você é o ganhador" data-ui-pause-host>
+        <div class="app__pane app__pane--list aud-stage" data-confetti>
+          <div class="aud-top"><span>Item 1 de 3</span><span class="aud-chip">Arrematado</span></div>
+          <div class="aud-title">Relógios de aço, lote com 4</div>
+          <div class="aud-photo">
+            <img src="assets/img/photo-f117473136-960.webp" srcset="assets/img/photo-f117473136-500.webp 500w, assets/img/photo-f117473136-960.webp 960w, assets/img/photo-f117473136-1280.webp 1280w" sizes="(min-width: 1024px) 700px, 100vw" width="960" height="722" alt="" loading="lazy" decoding="async">
+            
+          </div>
+          <div class="aud-confetti" aria-hidden="true"><i style="left:2%;--d:0;--x:-60px;--r:0deg"></i><i style="left:39%;--d:83;--x:-7px;--r:97deg"></i><i style="left:76%;--d:166;--x:46px;--r:194deg"></i><i style="left:17%;--d:249;--x:-21px;--r:291deg"></i><i style="left:54%;--d:332;--x:32px;--r:388deg"></i><i style="left:91%;--d:415;--x:-35px;--r:485deg"></i><i style="left:32%;--d:498;--x:18px;--r:42deg"></i><i style="left:69%;--d:581;--x:-49px;--r:139deg"></i><i style="left:10%;--d:64;--x:4px;--r:236deg"></i><i style="left:47%;--d:147;--x:57px;--r:333deg"></i><i style="left:84%;--d:230;--x:-10px;--r:430deg"></i><i style="left:25%;--d:313;--x:43px;--r:527deg"></i><i style="left:62%;--d:396;--x:-24px;--r:84deg"></i><i style="left:3%;--d:479;--x:29px;--r:181deg"></i><i style="left:40%;--d:562;--x:-38px;--r:278deg"></i><i style="left:77%;--d:45;--x:15px;--r:375deg"></i><i style="left:18%;--d:128;--x:-52px;--r:472deg"></i><i style="left:55%;--d:211;--x:1px;--r:29deg"></i><i style="left:92%;--d:294;--x:54px;--r:126deg"></i><i style="left:33%;--d:377;--x:-13px;--r:223deg"></i><i style="left:70%;--d:460;--x:40px;--r:320deg"></i><i style="left:11%;--d:543;--x:-27px;--r:417deg"></i><i style="left:48%;--d:26;--x:26px;--r:514deg"></i><i style="left:85%;--d:109;--x:-41px;--r:71deg"></i><i style="left:26%;--d:192;--x:12px;--r:168deg"></i><i style="left:63%;--d:275;--x:-55px;--r:265deg"></i><i style="left:4%;--d:358;--x:-2px;--r:362deg"></i><i style="left:41%;--d:441;--x:51px;--r:459deg"></i></div>
+          <div class="aud-win" aria-hidden="true">
+              <span class="aud-win__cup"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+              <b>Você é o ganhador!</b>
+              <div>Você arrematou o lote de relógios por <strong>R$ 2.650,00</strong>. O leiloeiro vai entrar em contato.</div>
+              <span class="aud-win__btn">Continuar no leilão</span>
+              <span class="aud-win__link">Ver minhas arrematações</span>
+            </div>
+
+        </div>
+        <div class="app__pane app__pane--open aud-side" data-ui-loop>
+          <div class="aud-result">
+            <div class="aud-result__row"><span>RESULTADO</span><span>TEMPO</span></div>
+            <div class="aud-result__big"><span>R$ 2.650,00</span><span>00:00</span></div>
+            <span class="aud-result__won">Você arrematou!</span>
+            <small>Arrematado por você · 9 lances</small>
+          </div>
+          <div class="aud-bids"><div class="aud-bids__h">Últimos lances</div><div><span>Você</span><span>R$ 2.650,00</span></div><div><span>marina.s</span><span>R$ 2.600,00</span></div><div><span>joao_relogios</span><span>R$ 2.500,00</span></div></div>
+          <div class="ui ui-panel ui-chat" data-ui="chat">
+            <div class="ui-head">
+              <span class="ui-agent" aria-hidden="true"></span>
+              <div class="ui-title">Chat do leilão</div>
+              <span class="ui-chat__online">Ao vivo</span>
+              <span class="ui-spacer"></span>
+            </div>
+            <div class="ui-chat__body">
+              <div class="ui-chat__day">Sexta, 20h09</div>
+              <div class="ui-msg ui-msg--me" data-chat-q>
+                <span class="ui-msg__text">Eu quero esse lote.</span>
+              </div>
+              <div class="ui-msg ui-msg--bot" data-chat-a>
+                <span class="ui-agent ui-msg__av" aria-hidden="true"></span>
+                <span class="ui-msg__col">
+                  <span class="ui-chat__answer">Lote revisado, com as caixas originais. Boa compra: o leiloeiro vai entrar em contato.</span>
+                  <span class="ui-chat__srcs">
+                    <span class="ui-chat__src"><svg class="ui-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3l2 1.5"/></svg>Item 1 · arrematado</span>
+                    <span class="ui-chat__src"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M4 2.5h5l3 3v8H4z"/><path d="M9 2.5v3h3"/></svg>Ficha técnica</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="ui-chat__input">
+              <span class="ui-chat__ph">Escreva uma mensagem</span>
+              <span class="ui-chat__send" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M8 13V3.5M3.8 7.5 8 3.3l4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section statement" id="estoque" data-moment="word-highlight" aria-labelledby="estoque-h">
+    <div class="wrap">
+      <h2 class="t-label" id="estoque-h">Estoque parado e seguidores no Instagram</h2>
+      <p class="mo-wh__text">Seu estoque parado e seus seguidores do Instagram já bastam para um leilão. Você marca o dia, mostra as peças e a comunidade disputa cada uma <strong>ao vivo</strong>, com hora para acabar.</p>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="passos" aria-labelledby="passos-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="passos-h">Seu primeiro leilão em 3 passos</h2></div>
+      <div class="grid">
+        <article class="card card--row card--open span-4">
+          <span class="step-num">1</span>
+          <h3>Crie a loja</h3>
+          <p>Escolha o endereço, o modelo, as cores e a logo. O cadastro aceita CPF ou CNPJ.</p>
+          <div class="panel"><img class="frame__img" src="assets/img/photo-f76601145-960.webp" srcset="assets/img/photo-f76601145-500.webp 500w, assets/img/photo-f76601145-960.webp 960w" sizes="(min-width: 1280px) 420px, 100vw" width="960" height="722" alt="Araras de roupas e bolsas numa loja de segunda mão" loading="lazy" decoding="async" data-source="library" data-subject="estoque de uma loja"></div>
+        </article>
+        <article class="card card--row card--open span-4">
+          <span class="step-num">2</span>
+          <h3>Cadastre as peças</h3>
+          <p>Fotos, vídeo do YouTube, ficha técnica e o incremento de cada lance.</p>
+          <div class="panel"><img class="frame__img" src="assets/img/photo-f131189124-960.webp" srcset="assets/img/photo-f131189124-500.webp 500w, assets/img/photo-f131189124-960.webp 960w" sizes="(min-width: 1280px) 420px, 100vw" width="960" height="640" alt="Relógio de pulso bicolor fotografado sobre um balcão de vidro" loading="lazy" decoding="async" data-source="library" data-subject="peça para leilão"></div>
+        </article>
+        <article class="card card--row card--open span-4">
+          <span class="step-num">3</span>
+          <h3>Chame a comunidade</h3>
+          <p>Ponha o link na bio. Quem marca “Quero participar” é avisado na véspera e no dia.</p>
+          <div class="panel"><img class="frame__img" src="assets/img/photo-f110067823-c875.webp" srcset="assets/img/photo-f110067823-c500.webp 500w, assets/img/photo-f110067823-c875.webp 875w" sizes="(min-width: 1280px) 420px, 100vw" width="875" height="583" alt="Participante levanta a placa 663 durante um pregão" loading="lazy" decoding="async" data-source="library" data-subject="pregão"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section g2 bg-mist" id="recursos" aria-labelledby="recursos-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head">
+          <h2 id="recursos-h">O painel do leiloeiro. <span class="muted">Lance automático, avisos, moderação e arrematações.</span></h2>
+        </div>
+        <div class="grid">
+          <article class="card card--row card--open span-6">
+            <h3>Cobre lances até o limite</h3>
+            <p>O participante define o máximo e o sistema responde só com o necessário para continuar na frente.</p>
+            <div class="panel" data-fx="gradient-mesh" data-fx-seed="11" data-fx-params='{"drift":0}' data-fx-palette='{"accent":"#8a5a38"}'>
+              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:288px;--ax:max(24px, 50% - 144px);--ay:40px;--ay-sm:24px" data-ui-loop>
+                <div class="ui ui-panel ui-slider" data-ui="slider">
+                  <div class="ui-slider__head">
+                    <span class="ui-slider__ico" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3l2 1.5"/></svg></span>
+                    <span class="ui-slider__name"><span class="ui-title">Lance automático</span><span class="ui-meta">Relógio de pulso bicolor</span></span>
+                    <span class="ui-spacer"></span>
+                    <span class="ui-slider__reset">Cancelar</span>
+                  </div>
+                  <div class="ui-slider__row">
+                    <div class="ui-slider__top"><span>Meu máximo</span><output>R$ 2.000</output></div>
+                    <div class="ui-slider__track" data-slider-track style="--v:0.62"><i class="ui-slider__fill"></i><i class="ui-slider__thumb"></i></div>
+                  </div>
+                  <div class="ui-slider__row">
+                    <div class="ui-slider__top"><span>Lance atual</span><output>R$ 1.850</output></div>
+                    <div class="ui-slider__track" style="--v:0.48"><i class="ui-slider__fill"></i><i class="ui-slider__thumb"></i></div>
+                  </div>
+                  <div class="ui-slider__seg" role="group" aria-label="Aviso">
+                    <span>Sem aviso</span><span class="is-on">Me avise</span>
+                  </div>
+                </div>
+              </div></div>
+            </div>
+          </article>
+          <article class="card card--row card--open span-6">
+            <h3>Avisa quem marcou presença</h3>
+            <p>Quem marca “Quero participar” recebe aviso na véspera, no dia e minutos antes de começar.</p>
+            <div class="panel" data-fx="gradient-mesh" data-fx-seed="23" data-fx-params='{"drift":0}' data-fx-palette='{"accent":"#3f8f6a"}'>
+              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:380px;--ax:32px;--ay:calc(100% - 180px);--ay-sm:calc(100% - 180px)">
+                <div class="ui ui-notify" data-ui="notify">
+                  <ul class="ui-notify__list" data-notify-list>
+                    <li class="ui-note"><span class="ui-note__ico"><svg class="ui-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3l2 1.5"/></svg></span><span class="ui-note__text"><span class="ui-note__title">Começa em 30 minutos<time>19h30</time></span><span class="ui-note__body">Leilão de Sexta, 8 itens</span></span><span class="ui-btn ui-btn--sm ui-note__btn">Abrir</span></li>
+                    <li class="ui-note"><span class="ui-note__ico"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M8 3v7M5 7l3 3 3-3"/></svg></span><span class="ui-note__text"><span class="ui-note__title">Seu lance foi superado<time>20h12</time></span><span class="ui-note__body">Fone de ouvido branco, mínimo R$ 185,00</span></span></li>
+                    <li class="ui-note"><span class="ui-note__ico"><svg class="ui-icon" viewBox="0 0 16 16"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg></span><span class="ui-note__text"><span class="ui-note__title">Você arrematou um item<time>20h06</time></span><span class="ui-note__body">Relógio de pulso bicolor, R$ 1.850,00</span></span></li>
+                  </ul>
+                </div>
+              </div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card card--row card--open span-6">
+          <h3>Modera o chat na hora</h3>
+          <p>Você escolhe quem vê e quem escreve, apaga mensagens e bane da loja com efeito imediato.</p>
+          <div class="panel" data-fx="gradient-mesh" data-fx-seed="37" data-fx-params='{"drift":0}' data-fx-palette='{"accent":"#c5f36a"}'>
+            <div class="stage stage--fade-b"><div class="at-right to-edge" style="--ax:32px;--ay:56px">
+              <div class="ui ui-panel ui-toggles" data-ui="toggles">
+                <div class="ui-head">
+                  <svg class="ui-icon ui-toggles__ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8 13 4v3.6c0 3-2.1 5.4-5 6.6-2.9-1.2-5-3.6-5-6.6V4z"/><path d="m5.8 8 1.6 1.6 3-3.2"/></svg>
+                  <div class="ui-title">Chat do leilão</div>
+                  <span class="ui-spacer"></span>
+                  <div class="ui-meta" data-tg-count>4 de 5 ligadas</div>
+                </div>
+                <ul class="ui-toggles__list">
+                  <li class="ui-tg">
+                    <span class="ui-tg__text"><span class="ui-tg__label">Chat ligado</span><span class="ui-tg__sub">Antes e durante o pregão</span></span>
+                    <button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Chat ligado"><i></i></button>
+                  </li>
+                  <li class="ui-tg">
+                    <span class="ui-tg__text"><span class="ui-tg__label">Visitantes veem o chat</span><span class="ui-tg__sub">Sem login, só leitura</span></span>
+                    <button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Visitantes veem o chat"><i></i></button>
+                  </li>
+                  <li class="ui-tg">
+                    <span class="ui-tg__text"><span class="ui-tg__label">Escrever só com cadastro completo</span><span class="ui-tg__sub">CPF e e-mail confirmado</span></span>
+                    <button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Escrever só com cadastro completo"><i></i></button>
+                  </li>
+                  <li class="ui-tg">
+                    <span class="ui-tg__text"><span class="ui-tg__label">Silenciar marina.s</span><span class="ui-tg__sub">Até o fim deste leilão</span></span>
+                    <button class="ui-switch" type="button" role="switch" aria-checked="false" aria-label="Silenciar marina.s"><i></i></button>
+                  </li>
+                  <li class="ui-tg">
+                    <span class="ui-tg__text"><span class="ui-tg__label">Limite de mensagens</span><span class="ui-tg__sub">Contra quem repete demais</span></span>
+                    <button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Limite de mensagens"><i></i></button>
+                  </li>
+                </ul>
+              </div>
+            </div></div>
+          </div>
+        </article>
+        <article class="card card--row card--open span-6">
+          <h3>Organiza as arrematações</h3>
+          <p>A mensagem ao vencedor sai pronta por e-mail ou no WhatsApp, e a planilha exporta tudo.</p>
+          <div class="panel" data-fx="gradient-mesh" data-fx-seed="41" data-fx-params='{"drift":0}' data-fx-palette='{"accent":"#5b6b6e"}'>
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:340px;--ax:max(24px, 50% - 170px);--ay:40px;--ay-sm:24px">
+              <div class="ui ui-panel ui-checks" data-ui="checklist">
+                <div class="ui-checks__head">
+                  <div class="ui-title">Relógio bicolor · carla.m</div>
+                  <span class="ui-spacer"></span>
+                  <div class="ui-meta" data-checks-count>2 de 5</div>
+                </div>
+                <div class="ui-checks__bar"><i data-checks-bar style="--k:0.4"></i></div>
+                <ul class="ui-checks__list">
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Mensagem enviada por e-mail</span></li>
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Conversa aberta no WhatsApp</span></li>
+                  <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Pagamento confirmado</span></li>
+                  <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Peça enviada</span></li>
+                  <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Planilha exportada</span></li>
+                </ul>
+              </div>
+            </div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-inverse" id="modelos" data-moment="line-carries-colour" data-moment-opts='{"from": "base"}' aria-labelledby="modelos-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-6">
+          <div class="section-head">
+            <h2 id="modelos-h">Três modelos de loja com a sua marca</h2>
+            <p>Sua logo, 10 cores, fundos e fontes. O sistema bloqueia combinações difíceis de ler.</p>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Modelos de loja">
+            <button class="tab" type="button" role="tab" id="tab-btn-1" aria-selected="true" aria-controls="tab-1 screen-1">Vender relógios</button>
+            <button class="tab" type="button" role="tab" id="tab-btn-2" aria-selected="false" aria-controls="tab-2 screen-2" tabindex="-1">Vender roupas</button>
+            <button class="tab" type="button" role="tab" id="tab-btn-3" aria-selected="false" aria-controls="tab-3 screen-3" tabindex="-1">Vender eletrônicos</button>
+          </div>
+          <div role="tabpanel" id="tab-1" aria-labelledby="tab-btn-1"><p>O modelo Relógios lembra uma joalheria: nome ao centro, muito respiro e a peça em destaque. Serve para relógios, joias e itens de coleção.</p></div>
+          <div role="tabpanel" id="tab-2" aria-labelledby="tab-btn-2" hidden><p>O modelo Roupa tem cara de revista: categorias sempre à vista e vitrine em grade. Serve para roupas, bolsas, calçados e brechós.</p></div>
+          <div role="tabpanel" id="tab-3" aria-labelledby="tab-btn-3" hidden><p>O modelo Eletrônicos é direto: busca no topo e ficha técnica em evidência. Serve para celulares, áudio, games e informática.</p></div>
+        </div>
+        <div class="frame frame--split frame--lit span-6 start-7">
+          <div class="stage stage--fade-br">
+            <div class="at-corner to-edge" id="screen-1" role="img" aria-label="Página inicial de uma loja no modelo Relógios" style="--ax:56px;--ay:56px"><img class="shot" src="assets/img/modelo-watches.webp" width="1280" height="960" alt="" loading="lazy" decoding="async"></div>
+            <div class="at-corner to-edge" id="screen-2" role="img" aria-label="Página inicial de uma loja no modelo Roupa" style="--ax:56px;--ay:56px" hidden><img class="shot" src="assets/img/modelo-fashion.webp" width="1280" height="960" alt="" loading="lazy" decoding="async"></div>
+            <div class="at-corner to-edge" id="screen-3" role="img" aria-label="Página inicial de uma loja no modelo Eletrônicos" style="--ax:56px;--ay:56px" hidden><img class="shot" src="assets/img/modelo-electronics.webp" width="1280" height="960" alt="" loading="lazy" decoding="async"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="precos" aria-labelledby="precos-h">
+    <div class="wrap">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <h2 id="precos-h">Preços</h2>
+          <p>Sem mensalidade e sem custo para criar a loja. Item que fecha sem lance não paga nada.</p>
+          <div class="fee" data-fee>
+            <label for="fee-valor">Simule a taxa de um item vendido, em R$</label>
+            <div class="fee__field"><input id="fee-valor" name="valor" inputmode="numeric" autocomplete="off" value="350,00"></div>
+            <output for="fee-valor" data-fee-out aria-live="polite">Faixa de 6%: taxa de R$ 21,00</output>
+          </div>
+        </div>
+        <article class="card card--plan is-featured span-4 start-5">
+          <h3>Lançamento</h3>
+          <p class="muted">Até 30/11/2026, para todas as lojas</p>
+          <p class="price"><span class="t-stat">R$ 0</span><span class="muted">com tudo liberado</span></p>
+          <a class="btn btn--primary" href="/cadastro">Criar loja grátis</a>
+          <ul class="plan-rows">
+            <li><span>Loja com sua marca</span><b>Incluído</b></li>
+            <li><span>Auditório e chat ao vivo</span><b>Incluído</b></li>
+            <li><span>Lance automático</span><b>Incluído</b></li>
+            <li><span>Avisos e lembretes</span><b>Incluído</b></li>
+            <li><span>Arrematações e planilha</span><b>Incluído</b></li>
+            <li><span>Pedidos para leiloar</span><b>Incluído</b></li>
+            <li><span>Loja no celular e no computador</span><b>Incluído</b></li>
+          </ul>
+        </article>
+        <article class="card card--plan span-4 start-9">
+          <h3>A partir de 1º/12/2026</h3>
+          <p class="muted">Taxa só sobre o item arrematado</p>
+          <p class="price"><span class="t-stat">2,5% a 7,5%</span><span class="muted">por item</span></p>
+          <a class="btn btn--secondary" href="#duvidas">Ler as dúvidas sobre a taxa</a>
+          <ul class="plan-rows" data-fee-tiers>
+            <li data-up-to="10000" data-bp="750"><span>Até R$ 100,00</span><b>7,5%</b></li>
+            <li data-up-to="50000" data-bp="600"><span>R$ 100,01 a R$ 500,00</span><b>6%</b></li>
+            <li data-up-to="100000" data-bp="500"><span>R$ 500,01 a R$ 1.000,00</span><b>5%</b></li>
+            <li data-up-to="Infinity" data-bp="250"><span>Acima de R$ 1.000,00</span><b>2,5%</b></li>
+            <li><span>Item que fecha sem lance</span><b>R$ 0</b></li>
+            <li><span>Mensalidade</span><b>R$ 0</b></li>
+            <li><span>Quem paga: leiloeiro ou arrematante</span><b>Em breve</b></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-band" id="seguranca" aria-labelledby="seguranca-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-6">
+          <h2 id="seguranca-h">Segurança em cada lance e em cada conta</h2>
+          <p class="t-lead">Todo lance fica registrado na ordem em que chegou. Anular um lance exige motivo, e o motivo fica no histórico.</p>
+          <ul class="stack-2 plain-list">
+            <li>Senhas guardadas com Argon2id e conexão HTTPS.</li>
+            <li>Cada loja e cada conta de participante ficam isoladas.</li>
+            <li>Limite de tentativas no login, no cadastro e nos lances.</li>
+          </ul>
+          <a class="link" href="/privacidade">Ler a política de privacidade</a>
+        </div>
+        <div class="frame frame--split frame--lit span-6 start-7">
+          <div class="stage stage--fade-br">
+            <div class="at-corner to-edge" style="--ax:56px;--ay:56px;--w:620px" role="img" aria-label="Registro do pregão com os lances em ordem, um lance anulado com o motivo e o item vendido">
+              <div class="d-win log ui" aria-hidden="true">
+                <div class="d-win__bar"><span class="d-win__dots"><i></i><i></i><i></i></span><span>Registro · <b>Relógio de pulso bicolor</b></span></div>
+                <div class="d-main">
+                  <div class="d-main__head"><h4>14 lances, 1 anulado</h4><span class="d-btn">Baixar planilha</span></div>
+                  <div class="d-rows">
+                    <div class="d-row"><span class="when">20:06:41</span><div><b>Item encerrado</b><small>Dole 3, vendido para carla.m</small></div><span class="num">R$ 1.850</span><span class="d-chip">Vendido</span></div>
+                    <div class="d-row"><span class="when">20:06:29</span><div><b>carla.m</b><small>Lance manual, prorrogou 15 s</small></div><span class="num">R$ 1.850</span><span class="d-chip">Aceito</span></div>
+                    <div class="d-row"><span class="when">20:06:22</span><div><b>joao_relogios</b><small>Anulado: lance por engano</small></div><span class="num">R$ 1.900</span><span class="d-chip d-chip--live">Anulado</span></div>
+                    <div class="d-row"><span class="when">20:06:15</span><div><b>marina.s</b><small>Lance automático</small></div><span class="num">R$ 1.800</span><span class="d-chip d-chip--wait">Superado</span></div>
+                    <div class="d-row"><span class="when">20:05:58</span><div><b>carla.m</b><small>Lance manual</small></div><span class="num">R$ 1.750</span><span class="d-chip d-chip--wait">Superado</span></div>
+                    <div class="d-row"><span class="when">20:05:40</span><div><b>joao_relogios</b><small>Lance manual</small></div><span class="num">R$ 1.650</span><span class="d-chip d-chip--wait">Superado</span></div>
+                    <div class="d-row"><span class="when">20:05:12</span><div><b>marina.s</b><small>Lance automático</small></div><span class="num">R$ 1.600</span><span class="d-chip d-chip--wait">Superado</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="duvidas" aria-labelledby="duvidas-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="duvidas-h">Dúvidas frequentes</h2><p>O que lojistas e leiloeiros perguntam antes do primeiro leilão.</p><p><a class="link" href="#precos">Ver os preços</a></p></div>
+      <div class="faq faq--grid grid">
+          <div class="faq__item span-6"><h3>A Dole Leilão é gratuita mesmo? Até quando?</h3><p>Sim. Até 30/11/2026 todas as funcionalidades são gratuitas, e o cadastro não pede cartão de crédito.</p></div>
+          <div class="faq__item span-6"><h3>Como funciona a taxa a partir de 1º/12/2026?</h3><p>Vale só para itens arrematados, pela faixa de valor do item. O leiloeiro escolhe quem paga: ele ou quem arrematou. Em breve, mais informações.</p></div>
+          <div class="faq__item span-6"><h3>Pago alguma coisa se o item não for vendido?</h3><p>Não. Não há mensalidade nem custo para criar a loja ou fazer o leilão. Item sem lance não paga taxa.</p></div>
+          <div class="faq__item span-6"><h3>Como meus seguidores do Instagram participam?</h3><p>Pelo link da loja na bio, nos stories ou no WhatsApp. Para dar lance, fazem cadastro com CPF e e-mail confirmado.</p></div>
+          <div class="faq__item span-6"><h3>Como funciona o lance automático?</h3><p>O participante informa o máximo. O sistema cobre os outros lances com o mínimo necessário e avisa quando o máximo é superado.</p></div>
+          <div class="faq__item span-6"><h3>E se alguém der um lance no último segundo?</h3><p>O tempo do item é prorrogado, por padrão em 15 segundos. O cronômetro vem do servidor e é o mesmo em todos os celulares.</p></div>
+          <div class="faq__item span-6"><h3>Posso banir participantes?</h3><p>Sim. O banimento vale na hora: a pessoa sai do auditório, não escreve no chat e não dá mais lance na sua loja.</p></div>
+          <div class="faq__item span-6"><h3>O pagamento do arremate passa pela plataforma?</h3><p>Não. Você combina pagamento e entrega com o vencedor. O painel traz a mensagem pronta para o e-mail ou o WhatsApp.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Crie sua loja de leilões hoje</h2>
+        <p class="t-small muted">Grátis até 30/11/2026. Sem cartão de crédito.</p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="/cadastro">Criar loja grátis<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="#top"><img src="/brand/simbolo.svg" alt="" width="28" height="28" loading="lazy">Dole Leilão</a>
+          <p class="footer__lede">Leilões ao vivo para lojistas.</p>
+        </div>
+        <div class="span-2 footer__col"><h3>Auditório</h3><ul><li><a href="#auditorio">Lista e chat</a></li><li><a href="#passos">Primeiro leilão</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Recursos</h3><ul><li><a href="#recursos">Painel do leiloeiro</a></li><li><a href="#modelos">Modelos de loja</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Preços</h3><ul><li><a href="#precos">Taxas por item</a></li><li><a href="#duvidas">Dúvidas frequentes</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Conta</h3><ul><li><a href="/entrar">Entrar</a></li><li><a href="#seguranca">Segurança</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Dole Leilão &nbsp; <a href="/privacidade">Privacidade</a></span>
+        <div class="socials"></div>
+        <a class="credits" href="credits.html">Fotografias via Wikimedia Commons</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="assets/site/site.js"></script>
+</body>
+</html>

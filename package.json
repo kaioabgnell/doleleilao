@@ -1,0 +1,30 @@
+{
+  "name": "doleleilao",
+  "private": true,
+  "description": "Dole Leilão — SaaS de leilões online. Planejamento em specs/.",
+  "workspaces": [
+    "apps/web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,reverb,horizon,clock,schedule,web -c blue,magenta,yellow,red,gray,green \"npm:dev:api\" \"npm:dev:reverb\" \"npm:dev:horizon\" \"npm:dev:clock\" \"npm:dev:schedule\" \"npm:dev:web\"",
+    "dev:api": "bin/artisan serve --host=127.0.0.1 --port=8000",
+    "dev:reverb": "bin/artisan reverb:start --debug",
+    "dev:horizon": "bin/artisan horizon",
+    "dev:clock": "bin/artisan auction:clock",
+    "dev:schedule": "bin/artisan schedule:work",
+    "dev:web": "npm run dev -w web",
+    "build": "npm run build -w @doleleilao/design-tokens && npm run build -w web",
+    "test": "npm run test -w @doleleilao/design-tokens && npm run test:api",
+    "test:api": "cd apps/api && ../../bin/php vendor/bin/pest",
+    "lint": "npm run lint -w web && npm run lint:api",
+    "lint:api": "cd apps/api && ../../bin/php vendor/bin/pint --test && ../../bin/php vendor/bin/phpstan analyse --no-progress && ../../bin/php vendor/bin/deptrac analyse --no-progress",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  }
+}

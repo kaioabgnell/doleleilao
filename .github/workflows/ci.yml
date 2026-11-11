@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    name: Web + design tokens
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Testes dos tokens (contraste de todas as combinações)
+        run: npm run test -w @doleleilao/design-tokens
+      - run: npm run typecheck
+      - run: npm run lint -w web
+      - run: npm run build
+
+  api:
+    name: API (PHP 8.4)
+    runs-on: ubuntu-latest
+    if: ${{ hashFiles('apps/api/composer.json') != '' }}
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v4
+      - name: MySQL 8.4 LTS instalado direto na máquina (sem container, D-41)
+        uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: "8.4"
+          root-password: secret
+      - run: mysql -h127.0.0.1 -uroot -psecret -e "CREATE DATABASE testing"
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          extensions: pdo_mysql, bcmath, intl, pcntl, zip, gd, exif, redis
+          coverage: none
+      - run: composer install --no-interaction --prefer-dist --no-progress
+      - run: cp .env.example .env && php artisan key:generate
+      - name: Redis (instalado direto na máquina, sem container)
+        run: sudo apt-get install -y redis-server && sudo systemctl start redis-server
+      - name: Estilo (Pint)
+        run: vendor/bin/pint --test
+      - name: Análise estática (PHPStan)
+        run: vendor/bin/phpstan analyse --no-progress
+      - name: Regras de arquitetura (Deptrac)
+        run: vendor/bin/deptrac analyse --no-progress
+      - name: Testes (Pest)
+        run: vendor/bin/pest
+        env:
+          DB_CONNECTION: mysql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_DATABASE: testing
+          DB_USERNAME: root
+          DB_PASSWORD: secret

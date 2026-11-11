@@ -1,0 +1,10 @@
+#!/bin/sh
+# PHP 8.4 só para este projeto (o PHP padrão do sistema continua 8.1).
+# Ordem: $PHP84, .tools/php/php (static-php-cli), Homebrew php@8.4.
+DIR=$(cd "$(dirname "$0")" && pwd)
+export PHPRC="${PHPRC:-$DIR/../infra/local}"
+for p in "${PHP84:-}" "$DIR/../.tools/php/php" /usr/local/opt/php@8.4/bin/php /opt/homebrew/opt/php@8.4/bin/php; do
+  [ -n "$p" ] && [ -x "$p" ] && exec "$p" "$@"
+done
+echo "PHP 8.4 não encontrado (.tools/php/php, Homebrew php@8.4 ou variável PHP84). Veja README.md." >&2
+exit 1
